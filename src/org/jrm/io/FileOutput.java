@@ -1,10 +1,10 @@
 package org.jrm.io;
 
-public class FileOut
+public class FileOutput
 {
     String filePath;
 
-    public FileOut(String filePath) { this.filePath = filePath; }
+    public FileOutput(String filePath) { this.filePath = filePath; }
     public void writeNextLine(){}
     public void writeFile(){}
 }
