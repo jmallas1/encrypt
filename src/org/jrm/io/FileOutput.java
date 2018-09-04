@@ -2,11 +2,21 @@ package org.jrm.io;
 
 import java.io.*;
 
+/**
+ * Class model for FileOutput
+ * @author Jared R Mallas
+ * @version 1.0
+ */
 public class FileOutput
 {
     String filePath;
     Writer out = null;
 
+    /**
+     * Constructor for FileOutput
+     * @param filePath String containing a full or relative path to a file
+     * @throws FileNotFoundException when file is absent or unreadable
+     */
     public FileOutput(String filePath) throws FileNotFoundException {
         this.filePath = filePath;
 
@@ -21,6 +31,10 @@ public class FileOutput
         }
     }
 
+    /**
+     * Method for writing the contents of a String to a file
+     * @param toWrite String to write to file.
+     */
     public void writeFile(String toWrite)
     {
         try
@@ -33,6 +47,4 @@ public class FileOutput
             System.out.println("File Write Error: " + filePath + " "  + e);
         }
     }
-
-    public void writeNextLine(){}
 }
