@@ -34,7 +34,10 @@ public class FileInput
             while ((line = in.readLine()) != null)
             {
                 rString += line;
+                rString += '\n';
             }
+            // remove trailing '\n'
+            rString = rString.substring(0, rString.length() -1);
         }
         catch (Exception e)
         {
