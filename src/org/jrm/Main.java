@@ -12,6 +12,8 @@ public class Main {
     {
         FileCrypto fc = new FileCrypto("happykey");
         String toCrypt = "";
+        String deCrypt = "";
+        String deCrypted = "";
 
         try
         {
@@ -23,6 +25,8 @@ public class Main {
             e.printStackTrace();
         }
 
+        toCrypt = fc.encrypt(toCrypt);
+
         try
         {
             FileOutput fo = new FileOutput("secrets.out");
@@ -33,7 +37,27 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println(toCrypt);
+        try
+        {
+            FileInput fi2 = new FileInput("secrets.out");
+            deCrypt = fi2.readFile();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        deCrypted = fc.decrypt(deCrypt);
+
+        try
+        {
+            FileOutput fo = new FileOutput("secrets.decrypted");
+            fo.writeFile(deCrypted);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }
